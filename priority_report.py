@@ -11,14 +11,14 @@ def dotloader():
     jira_pass = os.getenv('JIRA_PASS')
 
     slack_add = ''
-    if sys.argv[1] == None:
+    if sys.argv[1] == 'JOW':
         slack_add = os.getenv('JOW_HOOK')
     if sys.argv[1] == 'DAM':
         slack_add = os.getenv('DAM_HOOK')
     elif sys.argv[1] == 'CUR':
         slack_add = os.getenv('CUR_HOOK')
     else:
-        print('FAILING TODAY')
+        print('Not Running, probably no argument')
     return jira_user, jira_pass, slack_add
 
 
