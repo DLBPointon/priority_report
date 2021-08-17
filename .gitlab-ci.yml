@@ -27,4 +27,4 @@ mrbtk:
   tags:
    - autoscale
   script:
-    - python3 priority_report.py
+    - python3 priority_report.py ${TOCURATORS}
