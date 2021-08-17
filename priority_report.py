@@ -12,6 +12,8 @@ def dotloader():
         #slack_add1 = os.getenv('JOW_HOOK')
         #slack_add2 = os.getenv('CUR_HOOK')
         slack_add3 = os.getenv('DAM_HOOK')
+    else:
+        print('FAILING TODAY')
     return jira_user, jira_pass, slack_add
 
 
