@@ -9,10 +9,14 @@ def dotloader():
     load_dotenv()
     jira_user = os.getenv('JIRA_USER')
     jira_pass = os.getenv('JIRA_PASS')
+
+    slack_add = ''
     if sys.argv[1] == True: 
         #slack_add = os.getenv('JOW_HOOK')
         #slack_add = os.getenv('CUR_HOOK')
         slack_add = os.getenv('DAM_HOOK')
+    elif sys.argv[1] is None:
+        print('Some of the way there m8')
     else:
         print('FAILING TODAY')
     return jira_user, jira_pass, slack_add
