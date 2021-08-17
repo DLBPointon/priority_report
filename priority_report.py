@@ -8,7 +8,10 @@ def dotloader():
     load_dotenv()
     jira_user = os.getenv('JIRA_USER')
     jira_pass = os.getenv('JIRA_PASS')
-    slack_add = os.getenv('REPORTER_SLACK')
+    if sys.argv[1] == True: 
+        #slack_add1 = os.getenv('JOW_SLACK')
+        #slack_add2 = os.getenv('CUR_SLACK')
+        slack_add3 = os.getenv('DAM_SLACK')
     return jira_user, jira_pass, slack_add
 
 
