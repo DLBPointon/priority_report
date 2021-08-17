@@ -11,10 +11,9 @@ def dotloader():
     jira_pass = os.getenv('JIRA_PASS')
 
     slack_add = ''
-    if not sys.argv[1]:
+    if sys.argv[1] == None:
         slack_add = os.getenv('JOW_HOOK')
     if sys.argv[1] == 'DAM':
-        
         slack_add = os.getenv('DAM_HOOK')
     elif sys.argv[1] == 'CUR':
         slack_add = os.getenv('CUR_HOOK')
