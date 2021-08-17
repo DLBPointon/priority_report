@@ -1,5 +1,6 @@
 from jira import JIRA
 import os
+import sys
 from dotenv import load_dotenv
 from datetime import date
 
