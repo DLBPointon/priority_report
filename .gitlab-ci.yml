@@ -11,8 +11,9 @@ stages:
 variables:
     JIRA_PASS: $JIRA_PASS
     JIRA_USER: $JIRA_USER
-    JOW_HOOK: $SLACK_JOW
-    CURATOR_HOOK: $SLACK_CUR
+    JOW_HOOK: $JOW_SLACK
+    CUR_HOOK: $CUR_SLACK
+    DAM_HOOK: $DAM_SLACK
 
 before_script:
     - echo $PATH
