@@ -14,6 +14,7 @@ variables:
     JOW_HOOK: $JOW_SLACK
     CUR_HOOK: $CUR_SLACK
     DAM_HOOK: $DAM_SLACK
+    PRI_HOOK: $PRI_SLACK
 
 before_script:
     - echo $PATH
