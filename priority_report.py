@@ -38,16 +38,18 @@ def authorise(user, password):
             else:
                 issuen = str(issue)
             if not str(issue.fields.status) == 'Decontamination':
-                stat = str(issue.fields.status) + '\t\t\t\t'
+                stat = str(issue.fields.status) + '\t'
             else:
                 stat = str(issue.fields.status)
             if str(level) in 'High':
-                result_list += f'| {issuen} |' \
+                result_list += f'|{str(issue.fields.customfield_10201)} \t' \
+                               f' {issuen} |' \
                                f' {str(issue.fields.priority)} \t  |' \
                                f' {stat} |' \
                                f' {str(issue.fields.assignee)} |\n'
             elif str(level) in 'Highest':
-                result_list += f'| {issuen} |' \
+                result_list += f'|{str(issue.fields.customfield_10201)} \t' \
+                               f' {issuen} |' \
                                f' {str(issue.fields.priority)} |' \
                                f' {stat} |' \
                                f' {str(issue.fields.assignee)} |\n'
