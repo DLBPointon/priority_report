@@ -42,16 +42,16 @@ def authorise(user, password):
             else:
                 stat = str(issue.fields.status)
             if str(level) in 'High':
-                result_list += f'|{str(issue.fields.customfield_10201)} \t' \
-                               f' {issuen} |' \
-                               f' {str(issue.fields.priority)} \t  |' \
-                               f' {stat} |' \
+                result_list += f'| {str(issue.fields.customfield_10201)} -' \
+                               f' {issuen} -' \
+                               f' {str(issue.fields.priority)} -|' \
+                               f' {stat} -' \
                                f' {str(issue.fields.assignee)} |\n'
             elif str(level) in 'Highest':
-                result_list += f'|{str(issue.fields.customfield_10201)} \t' \
-                               f' {issuen} |' \
-                               f' {str(issue.fields.priority)} |' \
-                               f' {stat} |' \
+                result_list += f'| {str(issue.fields.customfield_10201)} -' \
+                               f' {issuen} -' \
+                               f' {str(issue.fields.priority)} -' \
+                               f' {stat} -' \
                                f' {str(issue.fields.assignee)} |\n'
 
     return result_list
