@@ -49,7 +49,7 @@ def post_it(p_df, token):
         'Content-Type': 'application/json',
             }
 
-    data = '{"text":' + "'Report for: " + str(date.today().strftime('%d-%b-%Y')) + " \n ```" + str(p_df) + "```" + '}'
+    data = '{"text":' + "'Report for: " + str(date.today().strftime('%d-%b-%Y')) + " \n ```" + str(p_df) + "```'" + '}'
 
     res = requests.post(token, headers=headers, data=data)
     print(res)
