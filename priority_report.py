@@ -6,6 +6,7 @@ from datetime import date
 import pandas as pd
 from tabulate import tabulate
 import requests
+import numpy as np
 
 def dotloader():
     load_dotenv()
@@ -44,12 +45,12 @@ def convert_to_df(ticket_dict):
 def tabulate_df(df):
     return tabulate(df, tablefmt = "grid", headers=['Organism', 'Ticket ID', 'Priority Level', 'Status', 'Assignee'])
 
-def post_it(p_df, token):
+def post_it(p_df, token, counter):
     headers = {
         'Content-Type': 'application/json',
             }
 
-    data = '{"text":' + "'Report for: " + str(date.today().strftime('%d-%b-%Y')) + " \n ```" + str(p_df) + "```'" + '}'
+    data = '{"text":' + "'Report **" + str(counter) + "** for: " + str(date.today().strftime('%d-%b-%Y')) + " \n ```" + str(p_df) + "```'" + '}'
 
     res = requests.post(token, headers=headers, data=data)
     print(res)
@@ -61,9 +62,13 @@ def main():
 
     df['Assignee'].replace('None', 'Waiting on Assignment', inplace=True)
     df.sort_values(['Assignee'], axis=0, inplace=True)
-
-    prettier_df = tabulate_df(df)
-    post_it(prettier_df, slack_add)
+    
+    counter = 0
+    df_list = np.vsplit(df, round(len(df) / 15))
+    for i in df_list:
+        counter += 1
+        prettier_df = tabulate_df(i)
+        post_it(prettier_df, slack_add, counter)
 
 if __name__ == '__main__':
     main()
