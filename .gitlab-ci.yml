@@ -11,9 +11,6 @@ stages:
 variables:
     JIRA_PASS: $JIRA_PASS
     JIRA_USER: $JIRA_USER
-    JOW_HOOK: $JOW_SLACK
-    CUR_HOOK: $CUR_SLACK
-    DAM_HOOK: $DAM_SLACK
     PRI_HOOK: $PRI_SLACK
 
 before_script:
@@ -23,10 +20,13 @@ before_script:
     - pip3 install jira
     - pip3 install datetime
     - pip3 install python-dotenv
+    - pip3 install pandas
+    - pip3 install tabulate
+    - pip3 install requests
 
 mrbtk:
   stage: first
   tags:
    - autoscale
   script:
-    - python3 priority_report.py ${TOCURATORS}
+    - python3 priority_report.py
