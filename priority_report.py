@@ -70,7 +70,7 @@ def main():
             counter += 1
             prettier_df = tabulate_df(i)
             post_it(prettier_df, slack_add, counter)
-    else:
+    except:
         df_list = np.vsplit(df, round(len(df) / 15) + 1)
         for i in df_list:
             counter += 1
