@@ -31,7 +31,7 @@ def authorise(user, password):
             issuen = str(issue)
             stat = str(issue.fields.status)
             if str(level) in 'High' or str(level) in 'Highest':
-                key = str(issue.fields.customfield_10201)
+                key = str(issue.fields.customfield_11627)
                 data_dict[key] = {'Ticket_id':issuen,
                                     'Priority Level': str(issue.fields.priority),
                                     'Status': stat,
