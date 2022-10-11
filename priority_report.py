@@ -66,7 +66,7 @@ def main():
     counter = 0
     n = 15
         
-    df_list = df.grouby(np.arange(len(df)) // n)
+    df_list = df.groupby(np.arange(len(df)) // n)
     print(df_list.shape)
     for i in df_list:
         counter += 1
