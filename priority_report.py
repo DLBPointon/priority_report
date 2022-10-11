@@ -67,7 +67,6 @@ def main():
     n = 15
         
     df_list = df.groupby(np.arange(len(df)) // n)
-    print(df_list.shape)
     for i in df_list:
         counter += 1
         prettier_df = tabulate_df(i)
