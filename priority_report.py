@@ -19,7 +19,7 @@ def dotloader():
 def authorise(user, password):
     data_dict = {}
 
-    jira = "https://grit-jira.sanger.ac.uk"
+    jira = "https://jira.sanger.ac.uk"
     auth_jira = JIRA(jira, basic_auth=(user, password))
     projects = auth_jira.search_issues(f'project IN ("GRIT","RC") AND status NOT IN ("Submitted", "Done", "Cancelled")',
                                         maxResults=10000)
