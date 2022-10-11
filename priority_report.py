@@ -66,12 +66,14 @@ def main():
     counter = 0
     try:
         df_list = np.vsplit(df, round(len(df) / 15))
+        print(df_list)
         for i in df_list:
             counter += 1
             prettier_df = tabulate_df(i)
             post_it(prettier_df, slack_add, counter)
     except:
         df_list = np.vsplit(df, round(len(df) / 15) + 1)
+        print(df_list)
         for i in df_list:
             counter += 1
             prettier_df = tabulate_df(i)
