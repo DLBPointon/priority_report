@@ -64,22 +64,15 @@ def main():
     df.sort_values(['Assignee'], axis=0, inplace=True)
     
     counter = 0
-    try:
-        print(len(df))
-        df_list = np.vsplit(df, round(len(df) / 15))
-        print(df_list)
-        for i in df_list:
-            counter += 1
-            prettier_df = tabulate_df(i)
-            post_it(prettier_df, slack_add, counter)
-    except:
-        print(len(df))
-        df_list = np.vsplit(df, round(len(df) / 15) + 1)
-        print(df_list)
-        for i in df_list:
-            counter += 1
-            prettier_df = tabulate_df(i)
-            post_it(prettier_df, slack_add, counter)
+    n = 15
+        
+    df_list = df.grouby(np.arange(len(df) // n)
+    print(df_list.shape)
+    for i in df_list:
+        counter += 1
+        prettier_df = tabulate_df(i)
+        post_it(prettier_df, slack_add, counter)
+
 
 if __name__ == '__main__':
     main()
