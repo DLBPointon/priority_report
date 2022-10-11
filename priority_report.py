@@ -65,6 +65,7 @@ def main():
     
     counter = 0
     try:
+        print(len(df))
         df_list = np.vsplit(df, round(len(df) / 15))
         print(df_list)
         for i in df_list:
@@ -72,6 +73,7 @@ def main():
             prettier_df = tabulate_df(i)
             post_it(prettier_df, slack_add, counter)
     except:
+        print(len(df))
         df_list = np.vsplit(df, round(len(df) / 15) + 1)
         print(df_list)
         for i in df_list:
