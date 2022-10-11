@@ -65,12 +65,10 @@ def main():
     
     counter = 0
     n = 15
-        
-    df_list = df.groupby(np.arange(len(df)) // n)
-    for i in df_list:
-        print(i)
+
+    for start in range(0, len(df), n):
         counter += 1
-        prettier_df = tabulate_df(i)
+        prettier_df = tabulate_df(df[start:start+n])
         post_it(prettier_df, slack_add, counter)
 
 
